@@ -10,7 +10,7 @@ public class MovedNegativeNumber
         // using two pointer approach
         int[] array = {0, -2, 3, -1, 4, -5, 6};
 
-        int left=0; // position to nest negative
+        int left=0; // position to next negative
         for (int right =0; right< array.length;right++)
         {
             if (array[right]<0)

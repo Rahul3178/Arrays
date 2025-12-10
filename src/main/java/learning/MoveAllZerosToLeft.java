@@ -17,6 +17,8 @@ public class MoveAllZerosToLeft {
 
 		System.err.println("Move all zeros to left: " + Arrays.toString(moveAllZerosToLeft(arr)));
 		// Expected Output: [0, 0, 0, 0, 0, 2, 3, 1, 4]
+
+		twoPointerApproach(arr);
 	}
 
 	private static int[] moveAllZerosToLeft(int[] arr) {
@@ -42,5 +44,23 @@ public class MoveAllZerosToLeft {
 		}
 
 		return newArray;
+	}
+
+	public static void twoPointerApproach(int arr[])
+	{
+			int pos=arr.length-1;
+
+			for (int i= arr.length-1;i>=0;i--){
+				if (arr[i] != 0)
+				{
+					arr[pos--]=arr[i];
+				}
+			}
+
+			while (pos>=0)
+			{
+				arr[pos--]=0;
+			}
+		System.err.println("Two pointer aproach \t"+Arrays.toString(arr));
 	}
 }
