@@ -15,5 +15,7 @@ public class SumOfDigits
 
         int n= String.valueOf(number).chars().map(c->c - '0').sum();
         System.err.println("Stream api sum \t"+n);
+
+
     }
 }

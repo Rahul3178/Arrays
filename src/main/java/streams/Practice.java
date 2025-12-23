@@ -208,6 +208,25 @@ public class Practice
         IntStream.range(2,lim).forEach(i->a[i]=a[i-1]+a[i-2]);
         IntStream.of(a).forEach(System.err::println);
 
+//         two strings are anagrams or not
+
+        String s1 = "RaceCar";
+        String s2 = "CarRace";
+
+        String first= Stream.of(s1.split("")).sorted().collect(Collectors.joining());
+        String second = Stream.of(s2.split("")).sorted().collect(Collectors.joining());
+
+
+
+        if (first.equals(second))
+        {
+            System.out.println("strings are anagrams");
+        }else {
+            System.out.println("strings are not anagrams");
+        }
+
+
+
     }
 
     public static boolean isPrime(int num)
