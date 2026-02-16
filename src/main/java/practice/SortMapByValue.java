@@ -22,5 +22,18 @@ public class SortMapByValue
                   ));
 
         System.err.println(result);
+LinkedHashMap<String, Integer> rs =
+                      scores.entrySet().stream()
+                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                            .collect(Collectors.toMap(
+                                    Map.Entry::getKey,
+                                    Map.Entry::getValue,
+                                    (o, n) -> o, LinkedHashMap::new ));
+
+
+    rs.entrySet().forEach(System.out::println);
+
     }
+
+
 }

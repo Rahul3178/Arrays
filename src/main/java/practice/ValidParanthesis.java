@@ -1,5 +1,5 @@
 package practice;
-
+import java.lang.Math.*;
 import java.util.Stack;
 
 public class ValidParanthesis
