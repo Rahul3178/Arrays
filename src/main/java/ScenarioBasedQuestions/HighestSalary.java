@@ -68,16 +68,28 @@ public class HighestSalary
         );
 
 
-      Map<String,Person> result=  pList.stream().collect(Collectors.toMap(Person::getDept, Function.identity(), BinaryOperator.maxBy(Comparator.comparingInt(Person::getSalarry))));
+//      Map<String,Person> result=  pList.stream().collect(Collectors.toMap(Person::getDept, Function.identity(), BinaryOperator.maxBy(Comparator.comparingInt(Person::getSalarry))));
+//
+//        result.entrySet().forEach(System.out::println);
 
-        result.entrySet().forEach(System.out::println);
+      Map<String, Person>   res=   pList.stream().collect(Collectors.toMap(Person::getDept,Function.identity(),
+                    BinaryOperator.maxBy(Comparator.comparingInt(Person::getSalarry))));
 
+        res.entrySet().forEach(System.out::println);
 
         int limit=20;
 
-     List<Integer> rs=
-             IntStream.range(1,limit).filter(i->IntStream.range(2,(int)Math.sqrt(limit)).allMatch(div->i%div!=0)).boxed().toList();
+   List<Integer> resu=
+           IntStream.range(1,limit).filter(k->IntStream.range(2,(int) Math.sqrt(limit)).allMatch(div->k%div!=0)).boxed().collect(Collectors.toList());
 
-        System.out.println(rs);
+        System.out.println(resu);
+
+        int fib[]= new int[limit];
+        fib[0]=0;
+        fib[1]=1;
+
+        IntStream.range(2,limit).forEach(i->fib[i]=fib[i-1]+fib[i-2]);
+        IntStream.of(fib).forEach(System.out::println);
+
     }
 }

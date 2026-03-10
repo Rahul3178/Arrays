@@ -93,6 +93,11 @@ public class EmployeeTest
                         op->op.get().getName()))).entrySet()
              .forEach(System.out::println);
 
+
+        eList.stream().collect(Collectors.groupingBy(EmployeeDto::getDepartment,
+                Collectors.collectingAndThen(Collectors.minBy(Comparator.comparingInt(EmployeeDto::getAge)),
+                        opt->opt.get().getName()))).entrySet().forEach(System.out::println);
+
   /*      10. For each department, find the youngest employee, but instead of returning the employee object,
         return only their name in uppercase.*/
 
