@@ -5,32 +5,23 @@ import java.util.Arrays;
 public class SelectionSort
 {
     public static void main(String[] args) {
+        int[] arr={3,2,1,8,6,53,4,9,34};
 
-        // selection sort pick one element and replace with minimum element
-        // in each pass smallest number came to first
-
-        int[] input = {4,2,7,1,2}; // Initialize an array
-
-
-        for (int i=0; i<input.length-1;i++)
-        {
+        for (int i = 0; i < arr.length-1; i++) {
             int minIndex=i;
-            for (int j=i+1; j<input.length;j++)
+            for (int j=i+1;j< arr.length;j++)
             {
-                if(input[j]<input[minIndex])
+                if (arr[minIndex]>arr[j])
                 {
                     minIndex=j;
                 }
             }
 
-            // now swap
-
-            int temp=input[minIndex];
-            input[minIndex]=input[i];
-            input[i]=temp;
-
+            int temp=arr[i];
+            arr[i]=arr[minIndex];
+            arr[minIndex]=temp;
         }
 
-        System.err.println("Insertion Sort\t" + Arrays.toString(input));
+        System.out.println(Arrays.toString(arr));
     }
 }

@@ -196,14 +196,26 @@ public class InterviewDay1
                 Collectors.counting())).entrySet().stream().forEach(entry-> System.out.println(entry.getKey()+"\t"+entry.getValue()));
 
 
+        // reveres s string
 
+        String in= "rahul";
+
+      String rv=
+              IntStream.range(0,in.length()).mapToObj(k->String.valueOf(in.charAt(in.length()-k-1))).collect(Collectors.joining());
+
+        System.out.println("reversed" +rv);
+
+        int[] art={1,2,3,4,5,6,7};
+
+      int[] rt=  IntStream.rangeClosed(0,art.length-1).map(u->art[art.length-u-1]).toArray();
+
+        System.out.println(Arrays.toString(rt));
     }
 
     public static boolean isAnagram(String s1, String s2)
     {
         char[] first=s1.toCharArray();
         char[] second=s2.toCharArray();
-
         Arrays.sort(first);
         Arrays.sort(second);
 

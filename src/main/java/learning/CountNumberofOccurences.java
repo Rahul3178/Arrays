@@ -1,7 +1,7 @@
 package learning;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * This program counts the number of occurrences of each element in an integer array.
@@ -35,6 +35,11 @@ public class CountNumberofOccurences {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        return map;
+
+       Map<Integer,Integer> rsd=
+               map.entrySet().stream().sorted(Map.Entry.comparingByValue(Collections.reverseOrder())).collect(Collectors.toMap(Map.Entry::getKey,
+                Map.Entry::getValue,(e1,e2)->e1, LinkedHashMap::new));
+
+        return rsd;
     }
 }
